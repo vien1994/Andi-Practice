@@ -1,3 +1,30 @@
-if(4 === 4) {
-  console.log('true');
-}
+// let array = ['hi', 'hi'];
+
+// while(array.length < 10) {
+//   array.push('hi');
+// }
+
+// let i = 0;
+// while(i < 10) {
+//   array.push('sup');
+//   i++;
+// }
+
+// console.log(array);
+
+
+/* ------ Switch ---------- */
+
+// const expr = 'Oranges';
+// switch (expr) {
+//   case 'Oranges':
+//     console.log('Oranges are $0.59 a pound.');
+//     break;
+//   case 'Mangoes':
+//   case 'Papayas':
+//     console.log('Mangoes and papayas are $2.79 a pound.');
+//     // expected output: "Mangoes and papayas are $2.79 a pound."
+//     break;
+//   default:
+//     console.log(`Sorry, we are out of ${expr}.`);
+// }
