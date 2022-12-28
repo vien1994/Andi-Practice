@@ -35,6 +35,7 @@ const bodyParser = require('body-parser')
 
 // We instantiate express by calling the function. Express exports a function so we call that function and our app is now functional.
 // We are really just following the example they gave us.
+// More info here: http://expressjs.com/en/guide/routing.html
 const app = express()
 
 // Our application will accept requests with bodys that have a JSON (JavaScript Object Notation) format
