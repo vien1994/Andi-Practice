@@ -1,4 +1,5 @@
 /**
+ * This is a basic Node.js back-end application that uses the Express framework.
  * 
  * Variables go on top
  * Express is a package that we can download through NPM (Node Package Manager)
