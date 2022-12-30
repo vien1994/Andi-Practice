@@ -31,7 +31,11 @@ const express = require('express')
 
 // In order to reference a request's body, we must install the body-parser package, per Express instructions in their documentation
 // http://expressjs.com/en/resources/middleware/body-parser.html
-const bodyParser = require('body-parser')
+// const bodyParser = require('body-parser')
+
+// We no longer need body-parser. https://expressjs.com/en/4x/api.html#express.json
+// As of version 4.16 we can use express.json()
+// EXAMPLE BELOW
 
 // We instantiate express by calling the function. Express exports a function so we call that function and our app is now functional.
 // We are really just following the example they gave us.
@@ -39,7 +43,13 @@ const bodyParser = require('body-parser')
 const app = express()
 
 // Our application will accept requests with bodys that have a JSON (JavaScript Object Notation) format
-app.use(bodyParser.json())
+// We use the new express.json() API - https://www.geeksforgeeks.org/express-js-express-json-function/
+// No longer need body-parser - Was app.use('bodyParser') from line 34 before
+app.use(express.json())
+
+// Allows express to serve static files (such as images, CSS files, and Javascript files) in the specified folder
+// We are saying we want to serve static files that exist in the folder "website"
+app.use(express.static('website'))
 
 // The app will listen for a GET request to the 'profile' endpoint. After that, it will execute the callback function (The second parameter)
 app.get('/profile', function (req, res) {
@@ -47,8 +57,8 @@ app.get('/profile', function (req, res) {
   console.log(__dirname);
 
   // We send back the file index.html as the response (res)
-  res.sendFile(__dirname +'/index.html');
-})
+  res.sendFile(__dirname +'/website/index.html');
+}) 
 
 // The app will listen for a GET request to the 'home' endpoint and send back the text, 'Hello World'
 app.get('/home', function (req, res) {
@@ -71,10 +81,10 @@ app.post('/login', function(req, res) {
   // then let them know if they're logged in or not
   if(req.body.username === username && req.body.password === password) {
     // Send an HTML file for logged in
-    res.sendFile(__dirname +'/loggedIn.html')
+    res.sendFile(__dirname +'/website/loggedIn.html')
   } else {
     // If incorrect username & password, send an HTML file for not logged in.
-    res.sendFile(__dirname +'/notLoggedIn.html');
+    res.sendFile(__dirname +'/website/notLoggedIn.html');
   }
 })
 
