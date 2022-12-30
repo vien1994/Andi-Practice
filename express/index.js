@@ -29,6 +29,9 @@
 // Here we require express - We reference the express package and store it in a variable called express
 const express = require('express')
 
+// Get the axios package to make API calls
+const axios = require('axios');
+
 // In order to reference a request's body, we must install the body-parser package, per Express instructions in their documentation
 // http://expressjs.com/en/resources/middleware/body-parser.html
 // const bodyParser = require('body-parser')
@@ -63,6 +66,18 @@ app.get('/profile', function (req, res) {
 // The app will listen for a GET request to the 'home' endpoint and send back the text, 'Hello World'
 app.get('/home', function (req, res) {
   res.send('Hello World')
+})
+
+// Example of using an API and calling it via the package axios.
+// response usually has a 'data' property so we can do res.data
+// This route for getData is getting the current price of Bitcoin and sending it back to the user
+// We do a get request to our server at the endpoint /getData -> 
+//    getData will perform a get request to https://api.coindesk.com/v1/bpi/currentprice.json
+//    our server at getData will send the result back to us
+app.get('/getData', (req, res) => {
+  console.log('calling API...');
+  axios.get('https://api.coindesk.com/v1/bpi/currentprice.json')
+    .then((response) => res.send(response.data))
 })
 
 // The app will listen for a POST request, a request that SENDS DATA to a server, to the 'login' endpoint
