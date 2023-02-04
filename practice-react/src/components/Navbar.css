@@ -1,0 +1,14 @@
+.navbar {
+  grid-column: 1 / -1;
+  grid-row: 1 / 2;
+  width: 100%;
+  background-color: gray;
+
+  font-size: 2rem;
+  color: white;
+  font-weight: bold;
+
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
